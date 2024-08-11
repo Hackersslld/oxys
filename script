@@ -37,10 +37,10 @@ HomeTab:CreateLabel("Welcome to OxyHub!")
 HomeTab:CreateLabel("News: Check out the latest updates!")
 HomeTab:CreateSection("Server Status")
 
--- Add eye-catching server status labels with emojis
+-- Add server status labels with text symbols
 HomeTab:CreateLabel("Server 1: ✅ Online")
 HomeTab:CreateLabel("Server 2: ✅ Online")
-HomeTab:CreateLabel("Database: 🟢 Online")
+HomeTab:CreateLabel("Database: [Online]")
 
 HomeTab:CreateSection("Other")
 HomeTab:CreateButton({
