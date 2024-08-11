@@ -40,7 +40,7 @@ HomeTab:CreateSection("Server Status")
 -- Add server status labels with text symbols
 HomeTab:CreateLabel("Server 1: ✅ Online")
 HomeTab:CreateLabel("Server 2: ✅ Online")
-HomeTab:CreateLabel("Database: [Online]")
+HomeTab:CreateLabel("Database: ✅ Online")
 
 HomeTab:CreateSection("Other")
 HomeTab:CreateButton({
