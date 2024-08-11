@@ -54,7 +54,23 @@ local scripts = {
     {Name = "Bloxburg", URL = "https://vedrox.com/data/scripts/free/script.lua"},
     {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
     {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
-    {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"}
+    {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"},
+    {Name = "Blox Fruits", URL = "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua"},
+    {Name = "Pet Simulator 99", URL = "https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099"},
+    {Name = "Criminality", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub"},
+    {Name = "Factor RNG", URL = "https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua"},
+    {Name = "AirSoft Battles", URL = "https://rawscripts.net/raw/Airsoft-Battles-KILL-ALL-15761"},
+    {Name = "Chat Bypass", URL = "https://rawscripts.net/raw/Universal-Script-Chat-bypasser-check-desc-16930"},
+    {Name = "Giga Mansion Tycoon", URL = "https://pastefy.app/yViKupRB/raw"},
+    {Name = "Money Clicker Inc", URL = "https://rawscripts.net/raw/NEW!-Money-Clicker-Inc.-Auto-farm-script-for-a-game-16886"},
+    {Name = "Fling Things & People", URL = "https://scriptblox.com/raw/Fling-Things-and-People-FTAP-Verbal-Hub-16541"},
+    {Name = "Goal Click Simulator", URL = "https://raw.githubusercontent.com/AppleScript001/Goal-Kick-Simulator/main/README.md"},
+    {Name = "Taxi Boss", URL = "https://etronix.wtf/script/"},
+    {Name = "Meme Sea", URL = "https://raw.githubusercontent.com/FrostLua/Krakles/main/ElgatoHub/Loader.lua"},
+    {Name = "Push a Car", URL = "https://raw.githubusercontent.com/ToraScript/Script/main/PushACar"},
+    {Name = "Sword Warrior Simulator", URL = "https://raw.githubusercontent.com/bunny42312/script/main/sws"},
+    {Name = "BladeBall", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/PitbullSource"},
+    {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
 }
 
 -- Add Sections and Elements to Scripts Tab
