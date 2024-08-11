@@ -23,7 +23,6 @@ local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab1 = Window:CreateTab("Scripts 1", 4483362458)
 local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)
 local ScriptsTab3 = Window:CreateTab("Scripts 3", 4483362458)
--- Continue creating more tabs if needed
 
 -- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to EclipseHub!")
@@ -48,7 +47,7 @@ local function UnloadUI()
 end
 
 -- List of Scripts with their names and URLs
-local scripts = {
+local scriptsTab1 = {
     {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
     {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
     {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
@@ -58,7 +57,7 @@ local scripts = {
     {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
     {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
     {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"},
-    {Name = "Blox Fruits", URL = "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua"},
+    {Name = "BloxFruits", URL = "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua"},
     {Name = "Pet Simulator 99", URL = "https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099"},
     {Name = "Criminality", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub"},
     {Name = "Factor RNG", URL = "https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua"},
@@ -76,42 +75,38 @@ local scripts = {
     {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
 }
 
--- Add Scripts to the first tab (Scripts 1)
-for i = 1, 25 do
-    ScriptsTab1:CreateButton({
-        Name = scripts[i].Name,
-        Callback = function()
-            loadstring(game:HttpGet(scripts[i].URL, true))()
-            UnloadUI() -- Unload the UI after script execution
-        end
-    })
-end
+local scriptsTab2 = {
+    {Name = "Gym League", URL = "https://ryk.bloxteam.com/loader.lua"},
+    {Name = "Build a Boat", URL = "https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua"},
+    {Name = "Void Fishing", URL = "https://pastebin.com/raw/xajBq0dk"},
+    {Name = "Strongest BattleGrounds", URL = "https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL"},
+    {Name = "BedWars", URL = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
+    {Name = "Clone Kingdom Tycoon", URL = "https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon"},
+    {Name = "Tapping Legends", URL = "https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua"},
+    {Name = "Evade", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"},
+    {Name = "Aimblox", URL = "https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua"},
+    {Name = "Weapon Crafting Simulator", URL = "https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy"},
+    {Name = "Tycoon RNG", URL = "https://ryk.bloxteam.com/loader.lua"},
+    {Name = "Base Battles", URL = "https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua"},
+    {Name = "Strong Ninja Simulator", URL = "https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md"}
+}
 
--- Add Scripts to the second tab (Scripts 2)
-for i = 26, 50 do
-    if scripts[i] then
-        ScriptsTab2:CreateButton({
-            Name = scripts[i].Name,
+-- Function to add scripts to the respective tabs
+local function addScriptsToTab(tab, scripts)
+    for _, script in ipairs(scripts) do
+        tab:CreateButton({
+            Name = script.Name,
             Callback = function()
-                loadstring(game:HttpGet(scripts[i].URL, true))()
+                loadstring(game:HttpGet(script.URL, true))()
                 UnloadUI() -- Unload the UI after script execution
             end
         })
     end
 end
 
--- Add Scripts to the third tab (Scripts 3)
-for i = 51, 75 do
-    if scripts[i] then
-        ScriptsTab3:CreateButton({
-            Name = scripts[i].Name,
-            Callback = function()
-                loadstring(game:HttpGet(scripts[i].URL, true))()
-                UnloadUI() -- Unload the UI after script execution
-            end
-        })
-    end
-end
+-- Add scripts to the respective tabs
+addScriptsToTab(ScriptsTab1, scriptsTab1)
+addScriptsToTab(ScriptsTab2, scriptsTab2)
 
 -- Example of a Notification
 Rayfield:Notify({
