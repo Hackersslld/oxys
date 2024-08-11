@@ -3,12 +3,12 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Create the Main Window
 local Window = Rayfield:CreateWindow({
-   Name = "OxyHub",
-   LoadingTitle = "Loading OxyHub",
+   Name = "EclipseHub",
+   LoadingTitle = "Loading EclipseHub",
    LoadingSubtitle = "Scripting Made Easy",
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = "OxyHub", -- Custom folder name
+      FolderName = "EclipseHub", -- Custom folder name
       FileName = "Config"
    },
    Discord = {
@@ -23,7 +23,7 @@ local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
 
 -- Add Sections and Elements to Home Tab
-HomeTab:CreateLabel("Welcome to OxyHub!")
+HomeTab:CreateLabel("Welcome to EclipseHub!")
 HomeTab:CreateLabel("News: Check out the latest updates!")
 HomeTab:CreateSection("Server Status")
 HomeTab:CreateLabel("Server 1: ✅ Online")
@@ -71,7 +71,7 @@ end
 -- Example of a Notification
 Rayfield:Notify({
    Title = "Welcome",
-   Content = "Thank you for using our script hub!",
+   Content = "Thank you for using EclipseHub!",
    Duration = 5,
    Image = 4483362458,
    Actions = {
