@@ -15,16 +15,6 @@ local Window = Rayfield:CreateWindow({
       Enabled = false,
       Invite = "noinvitelink",
       RememberJoins = true
-   },
-   KeySystem = true,
-   KeySettings = {
-      Title = "Access Key",
-      Subtitle = "Enter your key",
-      Note = "Get your key from our website",
-      FileName = "Key",
-      SaveKey = true,
-      GrabKeyFromSite = false,
-      Key = {"YourKey"} -- Replace "YourKey" with your actual key
    }
 })
 
