@@ -22,7 +22,6 @@ local Window = Rayfield:CreateWindow({
 local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab1 = Window:CreateTab("Scripts 1", 4483362458)
 local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)
-local ScriptsTab3 = Window:CreateTab("Scripts 3", 4483362458)
 
 -- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to EclipseHub!")
@@ -46,8 +45,8 @@ local function UnloadUI()
     Rayfield:Destroy() -- Unloads the Rayfield UI
 end
 
--- List of Scripts with their names and URLs
-local scriptsTab1 = {
+-- List of Scripts for Tab 1
+local scripts1 = {
     {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
     {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
     {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
@@ -75,38 +74,56 @@ local scriptsTab1 = {
     {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
 }
 
-local scriptsTab2 = {
-    {Name = "Gym League", URL = "https://ryk.bloxteam.com/loader.lua"},
-    {Name = "Build a Boat", URL = "https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua"},
-    {Name = "Void Fishing", URL = "https://pastebin.com/raw/xajBq0dk"},
-    {Name = "Strongest BattleGrounds", URL = "https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL"},
-    {Name = "BedWars", URL = "https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua"},
-    {Name = "Clone Kingdom Tycoon", URL = "https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon"},
-    {Name = "Tapping Legends", URL = "https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua"},
-    {Name = "Evade", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade"},
-    {Name = "Aimblox", URL = "https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua"},
-    {Name = "Weapon Crafting Simulator", URL = "https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy"},
-    {Name = "Tycoon RNG", URL = "https://ryk.bloxteam.com/loader.lua"},
-    {Name = "Base Battles", URL = "https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua"},
-    {Name = "Strong Ninja Simulator", URL = "https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md"}
+-- List of Scripts for Tab 2
+local scripts2 = {
+    {Name = "Gym League", URL = 'https://ryk.bloxteam.com/loader.lua'},
+    {Name = "Build a Boat", URL = 'https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua'},
+    {Name = "Void Fishing", URL = 'https://pastebin.com/raw/xajBq0dk'},
+    {Name = "Strongest BattleGrounds", URL = 'https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL'},
+    {Name = "BedWars", URL = 'https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua'},
+    {Name = "Clone Kingdom Tycoon", URL = 'https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon'},
+    {Name = "Tapping Legends", URL = 'https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua'},
+    {Name = "Evade", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade'},
+    {Name = "Aimblox", URL = 'https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua'},
+    {Name = "Weapon Crafting Simulator", URL = 'https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'},
+    {Name = "Tycoon RNG", URL = 'https://ryk.bloxteam.com/loader.lua'},
+    {Name = "Base Battles", URL = 'https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua'},
+    {Name = "Strong Ninja Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md'},
+    {Name = "Get Huge Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Get-Huge-Simulator-GUI/main/README.md'},
+    {Name = "Every Sec = 1 Speed", URL = 'https://pastebin.com/raw/3zqJpVd9'},
+    {Name = "Car Dealership Tycoon", URL = 'https://raw.githubusercontent.com/F347-FB/Roblox/main/Car-Dealership-Tycoon.lua'},
+    {Name = "Prison Life", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaohubPrisonLife'},
+    {Name = "Race Clicker", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRaceClicker'},
+    {Name = "Lifting Simulator", URL = 'https://rawscripts.net/raw/Lifting-Simulator-Script-15611'},
+    {Name = "Aqua Racer", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/AquaRacer'},
+    {Name = "Military Tycoon", URL = 'https://raw.githubusercontent.com/micorockslol123/military-tycoon/main/main'},
+    {Name = "Arsenal", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal'},
+    {Name = "Arm Wrestler Sim", URL = 'https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HubLDS'},
+    {Name = "GigaChad Simulator", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/Gigachad'},
+    {Name = "Rocks", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/ROCK'}
 }
 
--- Function to add scripts to the respective tabs
-local function addScriptsToTab(tab, scripts)
-    for _, script in ipairs(scripts) do
-        tab:CreateButton({
-            Name = script.Name,
-            Callback = function()
-                loadstring(game:HttpGet(script.URL, true))()
-                UnloadUI() -- Unload the UI after script execution
-            end
-        })
-    end
+-- Add Sections and Elements to Scripts Tab 1
+for _, script in ipairs(scripts1) do
+    ScriptsTab1:CreateButton({
+        Name = script.Name,
+        Callback = function()
+            loadstring(game:HttpGet(script.URL, true))()
+            UnloadUI() -- Unload the UI after script execution
+        end
+    })
 end
 
--- Add scripts to the respective tabs
-addScriptsToTab(ScriptsTab1, scriptsTab1)
-addScriptsToTab(ScriptsTab2, scriptsTab2)
+-- Add Sections and Elements to Scripts Tab 2
+for _, script in ipairs(scripts2) do
+    ScriptsTab2:CreateButton({
+        Name = script.Name,
+        Callback = function()
+            loadstring(game:HttpGet(script.URL, true))()
+            UnloadUI() -- Unload the UI after script execution
+        end
+    })
+end
 
 -- Example of a Notification
 Rayfield:Notify({
