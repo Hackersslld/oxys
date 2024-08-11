@@ -20,7 +20,10 @@ local Window = Rayfield:CreateWindow({
 
 -- Create Tabs for Different Sections
 local HomeTab = Window:CreateTab("Home", 4483362458)
-local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
+local ScriptsTab1 = Window:CreateTab("Scripts 1", 4483362458)
+local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)
+local ScriptsTab3 = Window:CreateTab("Scripts 3", 4483362458)
+-- Continue creating more tabs if needed
 
 -- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to EclipseHub!")
@@ -73,15 +76,41 @@ local scripts = {
     {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
 }
 
--- Add Sections and Elements to Scripts Tab
-for _, script in ipairs(scripts) do
-    ScriptsTab:CreateButton({
-        Name = script.Name,
+-- Add Scripts to the first tab (Scripts 1)
+for i = 1, 25 do
+    ScriptsTab1:CreateButton({
+        Name = scripts[i].Name,
         Callback = function()
-            loadstring(game:HttpGet(script.URL, true))()
+            loadstring(game:HttpGet(scripts[i].URL, true))()
             UnloadUI() -- Unload the UI after script execution
         end
     })
+end
+
+-- Add Scripts to the second tab (Scripts 2)
+for i = 26, 50 do
+    if scripts[i] then
+        ScriptsTab2:CreateButton({
+            Name = scripts[i].Name,
+            Callback = function()
+                loadstring(game:HttpGet(scripts[i].URL, true))()
+                UnloadUI() -- Unload the UI after script execution
+            end
+        })
+    end
+end
+
+-- Add Scripts to the third tab (Scripts 3)
+for i = 51, 75 do
+    if scripts[i] then
+        ScriptsTab3:CreateButton({
+            Name = scripts[i].Name,
+            Callback = function()
+                loadstring(game:HttpGet(scripts[i].URL, true))()
+                UnloadUI() -- Unload the UI after script execution
+            end
+        })
+    end
 end
 
 -- Example of a Notification
