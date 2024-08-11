@@ -3,12 +3,12 @@ local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
 -- Create the Main Window
 local Window = Rayfield:CreateWindow({
-   Name = "OxyHub",
-   LoadingTitle = "Loading OxyHub",
+   Name = "EclipseHub",
+   LoadingTitle = "Loading EclipseHub",
    LoadingSubtitle = "Scripting Made Easy",
    ConfigurationSaving = {
       Enabled = true,
-      FolderName = "OxyHub", -- Custom folder name
+      FolderName = "EclipseHub", -- Custom folder name
       FileName = "Config"
    },
    Discord = {
@@ -20,7 +20,7 @@ local Window = Rayfield:CreateWindow({
    KeySettings = {
       Title = "Access Key",
       Subtitle = "Enter your key",
-      Note = "Get your key from our website",
+      Note = "Purchae Oclis",
       FileName = "Key",
       SaveKey = true,
       GrabKeyFromSite = false,
@@ -36,11 +36,9 @@ local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
 HomeTab:CreateLabel("Welcome to OxyHub!")
 HomeTab:CreateLabel("News: Check out the latest updates!")
 HomeTab:CreateSection("Server Status")
-
--- Add server status labels with text symbols
 HomeTab:CreateLabel("Server 1: ✅ Online")
 HomeTab:CreateLabel("Server 2: ✅ Online")
-HomeTab:CreateLabel("Database: ✅ Online")
+HomeTab:CreateLabel("Database: [Online]")
 
 HomeTab:CreateSection("Other")
 HomeTab:CreateButton({
@@ -56,42 +54,29 @@ local function UnloadUI()
     Rayfield:Destroy() -- Unloads the Rayfield UI
 end
 
+-- List of Scripts with their names and URLs
+local scripts = {
+    {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
+    {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
+    {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
+    {Name = "Bee Swarm Simulator", URL = 'https://raw.githubusercontent.com/AdelOnTheTop/Adel-Hub/main/Main.lua'},
+    {Name = "Adopt Me!", URL = "https://egorikusa.space/271ee1956d4b196c73150e64.lua"},
+    {Name = "Bloxburg", URL = "https://vedrox.com/data/scripts/free/script.lua"},
+    {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
+    {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
+    {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"}
+}
+
 -- Add Sections and Elements to Scripts Tab
-ScriptsTab:CreateButton({
-    Name = "Adopt Me!",
-    Callback = function()
-        loadstring(game:HttpGet("https://egorikusa.space/271ee1956d4b196c73150e64.lua", true))()
-        UnloadUI() -- Unload the UI after script execution
-    end
-})
-ScriptsTab:CreateButton({
-    Name = "Bloxburg",
-    Callback = function()
-        loadstring(game:HttpGet("https://vedrox.com/data/scripts/free/script.lua"))()
-        UnloadUI() -- Unload the UI after script execution
-    end
-})
-ScriptsTab:CreateButton({
-    Name = "Piggy",
-    Callback = function()
-        loadstring(Game:HttpGet("https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob", true))()
-        UnloadUI() -- Unload the UI after script execution
-    end
-})
-ScriptsTab:CreateButton({
-    Name = "Arsenal",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"))()
-        UnloadUI() -- Unload the UI after script execution
-    end
-})
-ScriptsTab:CreateButton({
-    Name = "JailBreak",
-    Callback = function()
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"))()
-        UnloadUI() -- Unload the UI after script execution
-    end
-})
+for _, script in ipairs(scripts) do
+    ScriptsTab:CreateButton({
+        Name = script.Name,
+        Callback = function()
+            loadstring(game:HttpGet(script.URL, true))()
+            UnloadUI() -- Unload the UI after script execution
+        end
+    })
+end
 
 -- Example of a Notification
 Rayfield:Notify({
