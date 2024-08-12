@@ -20,8 +20,8 @@ local Window = Rayfield:CreateWindow({
 
 -- Create Tabs for Different Sections
 local HomeTab = Window:CreateTab("Home", 4483362458)
-local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
-local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)  -- Additional tab for overflow
+local ScriptsTab1 = Window:CreateTab("Scripts 1", 4483362458)
+local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)
 
 -- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to EclipseHub!")
@@ -42,13 +42,11 @@ HomeTab:CreateButton({
 
 -- Function to unload the UI
 local function UnloadUI()
-    if Rayfield then
-        Rayfield:Destroy() -- Unloads the Rayfield UI
-    end
+    Rayfield:Destroy() -- Unloads the Rayfield UI
 end
 
 -- List of Scripts for Tab 1
-local scripts = {
+local scripts1 = {
     {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
     {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
     {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
@@ -58,22 +56,22 @@ local scripts = {
     {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
     {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
     {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"},
-    {Name = "BloxFruits", URL = 'https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua'},
-    {Name = "Pet Simulator 99", URL = 'https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099'},
-    {Name = "Criminality", URL = 'https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub'},
-    {Name = "Factor RNG", URL = 'https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua'},
-    {Name = "AirSoft Battles", URL = 'https://rawscripts.net/raw/Airsoft-Battles-KILL-ALL-15761'},
-    {Name = "Chat Bypass", URL = 'https://rawscripts.net/raw/Universal-Script-Chat-bypasser-check-desc-16930'},
-    {Name = "Giga Mansion Tycoon", URL = 'https://pastefy.app/yViKupRB/raw'},
-    {Name = "Money Clicker Inc", URL = 'https://rawscripts.net/raw/NEW!-Money-Clicker-Inc.-Auto-farm-script-for-a-game-16886'},
-    {Name = "Fling Things & People", URL = 'https://scriptblox.com/raw/Fling-Things-and-People-FTAP-Verbal-Hub-16541'},
-    {Name = "Goal Click Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Goal-Kick-Simulator/main/README.md'},
-    {Name = "Taxi Boss", URL = 'https://etronix.wtf/script/'},
-    {Name = "Meme Sea", URL = 'https://raw.githubusercontent.com/FrostLua/Krakles/main/ElgatoHub/Loader.lua'},
-    {Name = "Push a Car", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/PushACar'},
-    {Name = "Sword Warrior Simulator", URL = 'https://raw.githubusercontent.com/bunny42312/script/main/sws'},
-    {Name = "BladeBall", URL = 'https://raw.githubusercontent.com/cracklua/cracks/m/PitbullSource'},
-    {Name = "SlapBattles", URL = 'https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008'}
+    {Name = "BloxFruits", URL = "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua"},
+    {Name = "Pet Simulator 99", URL = "https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099"},
+    {Name = "Criminality", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub"},
+    {Name = "Factor RNG", URL = "https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua"},
+    {Name = "AirSoft Battles", URL = "https://rawscripts.net/raw/Airsoft-Battles-KILL-ALL-15761"},
+    {Name = "Chat Bypass", URL = "https://rawscripts.net/raw/Universal-Script-Chat-bypasser-check-desc-16930"},
+    {Name = "Giga Mansion Tycoon", URL = "https://pastefy.app/yViKupRB/raw"},
+    {Name = "Money Clicker Inc", URL = "https://rawscripts.net/raw/NEW!-Money-Clicker-Inc.-Auto-farm-script-for-a-game-16886"},
+    {Name = "Fling Things & People", URL = "https://scriptblox.com/raw/Fling-Things-and-People-FTAP-Verbal-Hub-16541"},
+    {Name = "Goal Click Simulator", URL = "https://raw.githubusercontent.com/AppleScript001/Goal-Kick-Simulator/main/README.md"},
+    {Name = "Taxi Boss", URL = "https://etronix.wtf/script/"},
+    {Name = "Meme Sea", URL = "https://raw.githubusercontent.com/FrostLua/Krakles/main/ElgatoHub/Loader.lua"},
+    {Name = "Push a Car", URL = "https://raw.githubusercontent.com/ToraScript/Script/main/PushACar"},
+    {Name = "Sword Warrior Simulator", URL = "https://raw.githubusercontent.com/bunny42312/script/main/sws"},
+    {Name = "BladeBall", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/PitbullSource"},
+    {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
 }
 
 -- List of Scripts for Tab 2
@@ -106,16 +104,11 @@ local scripts2 = {
 }
 
 -- Add Sections and Elements to Scripts Tab 1
-for _, script in ipairs(scripts) do
-    ScriptsTab:CreateButton({
+for _, script in ipairs(scripts1) do
+    ScriptsTab1:CreateButton({
         Name = script.Name,
         Callback = function()
-            local success, errorMsg = pcall(function()
-                loadstring(game:HttpGet(script.URL, true))()
-            end)
-            if not success then
-                print("Error executing script: " .. errorMsg)
-            end
+            loadstring(game:HttpGet(script.URL, true))()
             UnloadUI() -- Unload the UI after script execution
         end
     })
@@ -126,12 +119,7 @@ for _, script in ipairs(scripts2) do
     ScriptsTab2:CreateButton({
         Name = script.Name,
         Callback = function()
-            local success, errorMsg = pcall(function()
-                loadstring(game:HttpGet(script.URL, true))()
-            end)
-            if not success then
-                print("Error executing script: " .. errorMsg)
-            end
+            loadstring(game:HttpGet(script.URL, true))()
             UnloadUI() -- Unload the UI after script execution
         end
     })
