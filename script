@@ -21,7 +21,6 @@ local Window = Rayfield:CreateWindow({
 -- Create Tabs for Different Sections
 local HomeTab = Window:CreateTab("Home", 4483362458)
 local ScriptsTab = Window:CreateTab("Scripts", 4483362458)
-local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)  -- Additional tab for overflow
 
 -- Add Sections and Elements to Home Tab
 HomeTab:CreateLabel("Welcome to EclipseHub!")
@@ -40,25 +39,44 @@ HomeTab:CreateButton({
     end
 })
 
--- Function to unload the UI
+-- Function to check the platform and unload the UI if on mobile
 local function UnloadUI()
-    if Rayfield then
-        Rayfield:Destroy() -- Unloads the Rayfield UI
+    if game:GetService("UserInputService").TouchEnabled then
+        Rayfield:Destroy() -- Unloads the Rayfield UI only if on mobile
     end
 end
 
--- List of Scripts for Tab 1
+-- List of Scripts with their names and URLs
 local scripts = {
-    {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
-    {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
-    {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
-    {Name = "Bee Swarm Simulator", URL = 'https://raw.githubusercontent.com/AdelOnTheTop/Adel-Hub/main/Main.lua'},
-    {Name = "Adopt Me!", URL = "https://egorikusa.space/271ee1956d4b196c73150e64.lua"},
-    {Name = "Bloxburg", URL = "https://vedrox.com/data/scripts/free/script.lua"},
-    {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
-    {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
-    {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"},
-    {Name = "BloxFruits", URL = 'https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua'},
+    -- Scripts for Tab 1
+    {Name = "Gym League", URL = 'https://ryk.bloxteam.com/loader.lua'},
+    {Name = "Build a Boat", URL = 'https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua'},
+    {Name = "Void Fishing", URL = 'https://pastebin.com/raw/xajBq0dk'},
+    {Name = "Strongest BattleGrounds", URL = 'https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL'},
+    {Name = "BedWars", URL = 'https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua', true},
+    {Name = "Clone Kingdom Tycoon", URL = 'https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon', true},
+    {Name = "Tapping Legends", URL = 'https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua'},
+    {Name = "Evade", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade'},
+    {Name = "Aimblox", URL = 'https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua'},
+    {Name = "Weapon Crafting Simulator", URL = 'https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy', true},
+    {Name = "Tycoon RNG", URL = 'https://ryk.bloxteam.com/loader.lua'},
+    {Name = "Base Battles", URL = 'https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua'},
+    {Name = "Strong Ninja Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md', true},
+    {Name = "Get Huge Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Get-Huge-Simulator-GUI/main/README.md', true},
+    {Name = "Every Sec = 1 Speed", URL = 'https://pastebin.com/raw/3zqJpVd9'},
+    {Name = "Car Dealership Tycoon", URL = 'https://raw.githubusercontent.com/F347-FB/Roblox/main/Car-Dealership-Tycoon.lua'},
+    {Name = "Prison Life", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaohubPrisonLife'},
+    {Name = "Race Clicker", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRaceClicker'},
+    {Name = "Lifting Simulator", URL = 'https://rawscripts.net/raw/Lifting-Simulator-Script-15611'},
+    {Name = "Aqua Racer", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/AquaRacer', true},
+    {Name = "Military Tycoon", URL = 'https://raw.githubusercontent.com/micorockslol123/military-tycoon/main/main'},
+    {Name = "Arsenal", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal'},
+    {Name = "Arm Wrestler Sim", URL = 'https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HubLDS'},
+    {Name = "GigaChad Simulator", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/Gigachad', true},
+    {Name = "Rocks", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/ROCK', true},
+
+    -- Scripts for Tab 2
+    {Name = "Blox Fruits", URL = 'https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua'},
     {Name = "Pet Simulator 99", URL = 'https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099'},
     {Name = "Criminality", URL = 'https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub'},
     {Name = "Factor RNG", URL = 'https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua'},
@@ -70,69 +88,19 @@ local scripts = {
     {Name = "Goal Click Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Goal-Kick-Simulator/main/README.md'},
     {Name = "Taxi Boss", URL = 'https://etronix.wtf/script/'},
     {Name = "Meme Sea", URL = 'https://raw.githubusercontent.com/FrostLua/Krakles/main/ElgatoHub/Loader.lua'},
-    {Name = "Push a Car", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/PushACar'},
+    {Name = "Push a Car", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/PushACar', true},
     {Name = "Sword Warrior Simulator", URL = 'https://raw.githubusercontent.com/bunny42312/script/main/sws'},
     {Name = "BladeBall", URL = 'https://raw.githubusercontent.com/cracklua/cracks/m/PitbullSource'},
     {Name = "SlapBattles", URL = 'https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008'}
 }
 
--- List of Scripts for Tab 2
-local scripts2 = {
-    {Name = "Gym League", URL = 'https://ryk.bloxteam.com/loader.lua'},
-    {Name = "Build a Boat", URL = 'https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua'},
-    {Name = "Void Fishing", URL = 'https://pastebin.com/raw/xajBq0dk'},
-    {Name = "Strongest BattleGrounds", URL = 'https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL'},
-    {Name = "BedWars", URL = 'https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua'},
-    {Name = "Clone Kingdom Tycoon", URL = 'https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon'},
-    {Name = "Tapping Legends", URL = 'https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua'},
-    {Name = "Evade", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade'},
-    {Name = "Aimblox", URL = 'https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua'},
-    {Name = "Weapon Crafting Simulator", URL = 'https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'},
-    {Name = "Tycoon RNG", URL = 'https://ryk.bloxteam.com/loader.lua'},
-    {Name = "Base Battles", URL = 'https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua'},
-    {Name = "Strong Ninja Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md'},
-    {Name = "Get Huge Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Get-Huge-Simulator-GUI/main/README.md'},
-    {Name = "Every Sec = 1 Speed", URL = 'https://pastebin.com/raw/3zqJpVd9'},
-    {Name = "Car Dealership Tycoon", URL = 'https://raw.githubusercontent.com/F347-FB/Roblox/main/Car-Dealership-Tycoon.lua'},
-    {Name = "Prison Life", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaohubPrisonLife'},
-    {Name = "Race Clicker", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRaceClicker'},
-    {Name = "Lifting Simulator", URL = 'https://rawscripts.net/raw/Lifting-Simulator-Script-15611'},
-    {Name = "Aqua Racer", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/AquaRacer'},
-    {Name = "Military Tycoon", URL = 'https://raw.githubusercontent.com/micorockslol123/military-tycoon/main/main'},
-    {Name = "Arsenal", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal'},
-    {Name = "Arm Wrestler Sim", URL = 'https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HubLDS'},
-    {Name = "GigaChad Simulator", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/Gigachad'},
-    {Name = "Rocks", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/ROCK'}
-}
-
--- Add Sections and Elements to Scripts Tab 1
-for _, script in ipairs(scripts) do
+-- Add Sections and Elements to Scripts Tab
+for i, script in ipairs(scripts) do
     ScriptsTab:CreateButton({
         Name = script.Name,
         Callback = function()
-            local success, errorMsg = pcall(function()
-                loadstring(game:HttpGet(script.URL, true))()
-            end)
-            if not success then
-                print("Error executing script: " .. errorMsg)
-            end
-            UnloadUI() -- Unload the UI after script execution
-        end
-    })
-end
-
--- Add Sections and Elements to Scripts Tab 2
-for _, script in ipairs(scripts2) do
-    ScriptsTab2:CreateButton({
-        Name = script.Name,
-        Callback = function()
-            local success, errorMsg = pcall(function()
-                loadstring(game:HttpGet(script.URL, true))()
-            end)
-            if not success then
-                print("Error executing script: " .. errorMsg)
-            end
-            UnloadUI() -- Unload the UI after script execution
+            loadstring(game:HttpGet(script.URL, true))()
+            UnloadUI() -- Only unloads UI if on mobile
         end
     })
 end
