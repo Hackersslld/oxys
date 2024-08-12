@@ -1,114 +1,21 @@
--- Boot the Library
-local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
-
--- Create the Main Window
-local Window = Rayfield:CreateWindow({
-   Name = "EclipseHub",
-   LoadingTitle = "Loading EclipseHub",
-   LoadingSubtitle = "Scripting Made Easy",
-   ConfigurationSaving = {
-      Enabled = true,
-      FolderName = "EclipseHub", -- Custom folder name
-      FileName = "Config"
-   },
-   Discord = {
-      Enabled = false,
-      Invite = "noinvitelink",
-      RememberJoins = true
-   }
-})
-
--- Create Tabs for Different Sections
-local HomeTab = Window:CreateTab("Home", 4483362458)
-local ScriptsTab1 = Window:CreateTab("Scripts 1", 4483362458)
-local ScriptsTab2 = Window:CreateTab("Scripts 2", 4483362458)
-
--- Add Sections and Elements to Home Tab
-HomeTab:CreateLabel("Welcome to EclipseHub!")
-HomeTab:CreateLabel("News: Check out the latest updates!")
-HomeTab:CreateSection("Server Status")
-HomeTab:CreateLabel("Server 1: ✅ Online")
-HomeTab:CreateLabel("Server 2: ✅ Online")
-HomeTab:CreateLabel("Database: ✅ Online")
-
-HomeTab:CreateSection("Other")
-HomeTab:CreateButton({
-    Name = "GitHub",
-    Callback = function()
-        -- Open GitHub repository link
-        print("Opening GitHub...")
-    end
-})
-
 -- Function to unload the UI
 local function UnloadUI()
-    Rayfield:Destroy() -- Unloads the Rayfield UI
+    if Rayfield then
+        Rayfield:Destroy() -- Unloads the Rayfield UI
+    end
 end
 
--- List of Scripts for Tab 1
-local scripts1 = {
-    {Name = "Tower of Hell", URL = 'https://raw.githubusercontent.com/sc0ttferren/robloxscripts/main/toh/sc0tt.lua'},
-    {Name = "Murder Mystery 2", URL = "https://farmerjoe.vercel.app/scripts/MM2_InvisibleFArm.lua"},
-    {Name = "Sindo Life", URL = "https://raw.githubusercontent.com/SxnwDev/Premier/main/Free-Premier.lua"},
-    {Name = "Bee Swarm Simulator", URL = 'https://raw.githubusercontent.com/AdelOnTheTop/Adel-Hub/main/Main.lua'},
-    {Name = "Adopt Me!", URL = "https://egorikusa.space/271ee1956d4b196c73150e64.lua"},
-    {Name = "Bloxburg", URL = "https://vedrox.com/data/scripts/free/script.lua"},
-    {Name = "Piggy", URL = "https://raw.githubusercontent.com/DFDERD41/autofarms-2-game/main/piggynoob"},
-    {Name = "Arsenal", URL = "https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal"},
-    {Name = "JailBreak", URL = "https://raw.githubusercontent.com/BlitzIsKing/UniversalFarm/main/Loader/Regular"},
-    {Name = "BloxFruits", URL = "https://raw.githubusercontent.com/Basicallyy/Basicallyy/main/MinGamingV4.lua"},
-    {Name = "Pet Simulator 99", URL = "https://raw.githubusercontent.com/SenhorLDS/ProjectLDSHUB/main/Pet%20Simulator%2099"},
-    {Name = "Criminality", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/FemboysCrimHub"},
-    {Name = "Factor RNG", URL = "https://raw.githubusercontent.com/liebertgl/script/main/ReplHub.lua"},
-    {Name = "AirSoft Battles", URL = "https://rawscripts.net/raw/Airsoft-Battles-KILL-ALL-15761"},
-    {Name = "Chat Bypass", URL = "https://rawscripts.net/raw/Universal-Script-Chat-bypasser-check-desc-16930"},
-    {Name = "Giga Mansion Tycoon", URL = "https://pastefy.app/yViKupRB/raw"},
-    {Name = "Money Clicker Inc", URL = "https://rawscripts.net/raw/NEW!-Money-Clicker-Inc.-Auto-farm-script-for-a-game-16886"},
-    {Name = "Fling Things & People", URL = "https://scriptblox.com/raw/Fling-Things-and-People-FTAP-Verbal-Hub-16541"},
-    {Name = "Goal Click Simulator", URL = "https://raw.githubusercontent.com/AppleScript001/Goal-Kick-Simulator/main/README.md"},
-    {Name = "Taxi Boss", URL = "https://etronix.wtf/script/"},
-    {Name = "Meme Sea", URL = "https://raw.githubusercontent.com/FrostLua/Krakles/main/ElgatoHub/Loader.lua"},
-    {Name = "Push a Car", URL = "https://raw.githubusercontent.com/ToraScript/Script/main/PushACar"},
-    {Name = "Sword Warrior Simulator", URL = "https://raw.githubusercontent.com/bunny42312/script/main/sws"},
-    {Name = "BladeBall", URL = "https://raw.githubusercontent.com/cracklua/cracks/m/PitbullSource"},
-    {Name = "SlapBattles", URL = "https://rawscripts.net/raw/Slap-Battles-KykyryzoB-Hub-SB-9008"}
-}
-
--- List of Scripts for Tab 2
-local scripts2 = {
-    {Name = "Gym League", URL = 'https://ryk.bloxteam.com/loader.lua'},
-    {Name = "Build a Boat", URL = 'https://raw.githubusercontent.com/XRoLLu/UWU/main/BUILD%20A%20BOAT%20FOR%20TREASURE.lua'},
-    {Name = "Void Fishing", URL = 'https://pastebin.com/raw/xajBq0dk'},
-    {Name = "Strongest BattleGrounds", URL = 'https://raw.githubusercontent.com/Hawk983/Phantom-/main/UNIVERSAL'},
-    {Name = "BedWars", URL = 'https://raw.githubusercontent.com/7GrandDadPGN/VapeV4ForRoblox/main/NewMainScript.lua'},
-    {Name = "Clone Kingdom Tycoon", URL = 'https://raw.githubusercontent.com/ephide/yo/main/clonekingdomtycoon'},
-    {Name = "Tapping Legends", URL = 'https://raw.githubusercontent.com/NhatMinhVNQ/w-hub/main/WORLDHUB.lua'},
-    {Name = "Evade", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubEvade'},
-    {Name = "Aimblox", URL = 'https://raw.githubusercontent.com/mexstudios/MexScripts/main/aimblox.lua'},
-    {Name = "Weapon Crafting Simulator", URL = 'https://raw.githubusercontent.com/BaconBossScript/Crazy/main/Crazy'},
-    {Name = "Tycoon RNG", URL = 'https://ryk.bloxteam.com/loader.lua'},
-    {Name = "Base Battles", URL = 'https://api.luarmor.net/files/v3/loaders/730854e5b6499ee91deb1080e8e12ae3.lua'},
-    {Name = "Strong Ninja Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Strong-Ninja-Simulator/main/README.md'},
-    {Name = "Get Huge Simulator", URL = 'https://raw.githubusercontent.com/AppleScript001/Get-Huge-Simulator-GUI/main/README.md'},
-    {Name = "Every Sec = 1 Speed", URL = 'https://pastebin.com/raw/3zqJpVd9'},
-    {Name = "Car Dealership Tycoon", URL = 'https://raw.githubusercontent.com/F347-FB/Roblox/main/Car-Dealership-Tycoon.lua'},
-    {Name = "Prison Life", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaohubPrisonLife'},
-    {Name = "Race Clicker", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubRaceClicker'},
-    {Name = "Lifting Simulator", URL = 'https://rawscripts.net/raw/Lifting-Simulator-Script-15611'},
-    {Name = "Aqua Racer", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/AquaRacer'},
-    {Name = "Military Tycoon", URL = 'https://raw.githubusercontent.com/micorockslol123/military-tycoon/main/main'},
-    {Name = "Arsenal", URL = 'https://raw.githubusercontent.com/tbao143/thaibao/main/TbaoHubArsenal'},
-    {Name = "Arm Wrestler Sim", URL = 'https://raw.githubusercontent.com/limaspeedy/limaspeedy/main/HubLDS'},
-    {Name = "GigaChad Simulator", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/Gigachad'},
-    {Name = "Rocks", URL = 'https://raw.githubusercontent.com/ToraScript/Script/main/ROCK'}
-}
-
 -- Add Sections and Elements to Scripts Tab 1
-for _, script in ipairs(scripts1) do
-    ScriptsTab1:CreateButton({
+for _, script in ipairs(scripts) do
+    ScriptsTab:CreateButton({
         Name = script.Name,
         Callback = function()
-            loadstring(game:HttpGet(script.URL, true))()
+            local success, errorMsg = pcall(function()
+                loadstring(game:HttpGet(script.URL, true))()
+            end)
+            if not success then
+                print("Error executing script: " .. errorMsg)
+            end
             UnloadUI() -- Unload the UI after script execution
         end
     })
@@ -119,36 +26,13 @@ for _, script in ipairs(scripts2) do
     ScriptsTab2:CreateButton({
         Name = script.Name,
         Callback = function()
-            loadstring(game:HttpGet(script.URL, true))()
+            local success, errorMsg = pcall(function()
+                loadstring(game:HttpGet(script.URL, true))()
+            end)
+            if not success then
+                print("Error executing script: " .. errorMsg)
+            end
             UnloadUI() -- Unload the UI after script execution
         end
     })
 end
-
--- Example of a Notification
-Rayfield:Notify({
-   Title = "Welcome",
-   Content = "Thank you for using EclipseHub!",
-   Duration = 5,
-   Image = 4483362458,
-   Actions = {
-      Ignore = {
-         Name = "Okay!",
-         Callback = function()
-            print("The user tapped Okay!")
-         end
-      }
-   }
-})
-
--- Example of an Input Box in Home Tab
-local Input = HomeTab:CreateInput({
-   Name = "Enter Your Name",
-   PlaceholderText = "Type your name here...",
-   Callback = function(Text)
-      print("User entered: " .. Text)
-   end,
-})
-
--- Clean up the interface when needed
--- Rayfield:Destroy()
